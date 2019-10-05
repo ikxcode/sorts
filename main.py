@@ -1,6 +1,6 @@
 from merge_sort import merge_sort
-# array = [2,99,1,32,3,7,4,34,5,43,5,53]
-# array = [2,3,2]
+from bubble_sort import bubble_sort
+
 
 def request_numbers():
     string = input("input a bunch of numbers delimited by a space ")
@@ -16,6 +16,6 @@ def request_numbers():
 
 
 array = request_numbers()
-sorted_list = merge_sort(array)
+sorted_list = bubble_sort(array)
 
 print(sorted_list)
