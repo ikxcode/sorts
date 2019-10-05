@@ -1,5 +1,6 @@
 from merge_sort import merge_sort
 from bubble_sort import bubble_sort
+from insertion_sort import insertion_sort
 
 
 def request_numbers():
@@ -12,10 +13,12 @@ def request_numbers():
 
     return array
 
-# sorted_list = merge_sort(array, 0, "root")
-
 
 array = request_numbers()
-sorted_list = bubble_sort(array)
+sorted_merge_list = merge_sort(array)
+sorted_bubble_list = bubble_sort(array)
+sorted_insertion_list = insertion_sort(array)
 
-print(sorted_list)
+print("This list was sorted by the merge sort: " + str(sorted_merge_list))
+print("This list was sorted by the bubble sort: " + str(sorted_bubble_list))
+print("This list was sorted by the insertion sort: " + str(sorted_insertion_list))

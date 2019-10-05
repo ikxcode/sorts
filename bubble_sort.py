@@ -1,6 +1,6 @@
-def bubble_sort(array):
+def bubble_sort(sourceList):
+    array = sourceList.copy()
     list_size = len(array)
-    temp = ""
 
     for not_i in range(list_size):
         for i in range(list_size - 1):
