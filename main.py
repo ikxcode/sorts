@@ -27,32 +27,51 @@ def random_or_not():
         return random_list
 
 
-array = random_or_not()
-ref_sorted_array = sorted(array)
+def run_merge_sort(array, ref_sorted_array):
+    merge_start = time.perf_counter_ns()
+    sorted_merge_list = merge_sort(array)
+    merge_end = time.perf_counter_ns()
+    if sorted_merge_list == ref_sorted_array:
+        print("merge sort worked!")
+        print("took " + str((merge_end - merge_start) / 1_000_000) + "ms")
+        print()
+    else:
+        print("merge sort failed!")
+        print()
 
-merge_start = time.perf_counter_ns()
-sorted_merge_list = merge_sort(array)
-merge_end = time.perf_counter_ns()
-if sorted_merge_list == ref_sorted_array:
-    print("merge sort worked!")
-    print("took " + str((merge_end - merge_start) / 1_000_000) + "ms")
-else:
-    print("merge sort failed!")
 
-bubble_start = time.perf_counter_ns()
-sorted_bubble_list = bubble_sort(array)
-bubble_end = time.perf_counter_ns()
-if sorted_bubble_list == ref_sorted_array:
-    print("bubble sort worked!")
-    print("took " + str((bubble_end - bubble_start) / 1000000) + "ms")
-else:
-    print("merge sort failed!")
+def run_bubble_sort(array, ref_sorted_array):
+    bubble_start = time.perf_counter_ns()
+    sorted_bubble_list = bubble_sort(array)
+    bubble_end = time.perf_counter_ns()
+    if sorted_bubble_list == ref_sorted_array:
+        print("bubble sort worked!")
+        print("took " + str((bubble_end - bubble_start) / 1000000) + "ms")
+        print()
+    else:
+        print("merge sort failed!")
+        print()
 
-insertion_start = time.perf_counter_ns()
-sorted_insertion_list = insertion_sort(array)
-insertion_end = time.perf_counter_ns()
-if sorted_insertion_list == ref_sorted_array:
-    print("insertion sort worked!")
-    print("took " + str((insertion_end - insertion_start) / 1000000) + "ms")
-else:
-    print("merge sort failed!")
+
+def run_insertion_sort(array, ref_sorted_array):
+    insertion_start = time.perf_counter_ns()
+    sorted_insertion_list = insertion_sort(array)
+    insertion_end = time.perf_counter_ns()
+    if sorted_insertion_list == ref_sorted_array:
+        print("insertion sort worked!")
+        print("took " + str((insertion_end - insertion_start) / 1000000) + "ms")
+        print()
+    else:
+        print("merge sort failed!")
+        print()
+
+
+def run():
+    array = random_or_not()
+    sorted_array = sorted(array)
+    run_bubble_sort(array, sorted_array)
+    run_insertion_sort(array, sorted_array)
+    run_merge_sort(array, sorted_array)
+
+
+run()
